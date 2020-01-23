@@ -10,27 +10,27 @@ class DNA():
         return self.rna
     
     def GetAmino(self):
-        tSlate = {"Phe": ["UUU","UUC"],
-                  "Leu": ["UUA", "UUG", "CUU", "CUC", "CUA", "CUG"],
-                  "Ile": ["AUU","AUC","AUA"],
-                  "Met": ["AUG"],
-                  "Val": ["GUU","GUC","GUA","GUG"],
-                  "Ser": ["UCU","UCC","UCA","UCG","AGU","AGC"],
-                  "Pro": ["CCU","CCC","CCA","CCG"],
-                  "Thr": ["ACU","ACC","ACA","ACG"],
-                  "Ala": ["GCU","GCA","GCC","GCG7"],
-                  "Tyr": ["UUAU","UAC"],
-                  "STOP": ["UAA", "UAG","UGA"],
-                  "His": ["CAU","CAC"],
-                  "Gln": ["CAA","CAG"],
-                  "Asn": ["AAU","AAC"],
-                  "Lys": ["AAA","AAG"],
-                  "Asp": ["GAU","GAC"],
-                  "Glu": ["GAA","GAG"],
-                  "Cys": ["UGU","UGC"],
-                  "Trp": ["UGG"],
-                  "Arg": ["CGU","CGC","CGA","CGG","AGA","AGG"],
-                  "Gly": ["GGU","GGC","GGA","GGG"]}
+        tSlate = {"UUU":"Phe" , "UUC":"Phe",
+          "UUA":"Leu" , "UUG":"Leu" , "CUU":"Leu" , "CUC":"Leu" , "CUA":"Leu" , "CUG":"Leu",
+          "AUU":"Ile" , "AUC":"Ile" , "AUA":"Ile" ,
+          "AUG":"Met",
+          "GUU":"Val" , "GUC":"Val" , "GUA":"Val" , "GUG":"Val" ,
+          "UCU":"Ser" , "UCC":"Ser" , "UCA":"Ser" , "UCG":"Ser" , "AGU":"Ser" , "AGC":"Ser" ,
+          "CCU":"Pro" , "CCC":"Pro" , "CCA":"Pro" , "CCG":"Pro" , 
+          "ACU":"Thr" , "ACC":"Thr" , "ACA":"Thr" , "ACG":"Thr" ,
+          "GCU":"Ala" , "GCA":"Ala" , "GCC":"Ala" , "GCG" : "Ala",
+          "UAU":"Tyr" , "UAC":"Tyr" ,
+          "UAA":"STOP" , "UAG":"STOP" , "UGA":"STOP",
+          "CAU":"His" , "CAC":"His" , 
+          "CAA":"Gln" , "CAG":"Gln" ,
+          "AAU":"Asn" , "AAC":"Asn" ,
+          "AAA":"Lys" , "AAG":"Lys" ,
+          "GAU":"Asp" , "GAC":"Asp" ,
+          "GAA":"Glu" , "GAU":"Glu" ,
+          "UGU":"Cys" , "UGC":"Cys" ,
+          "UGG":"Trp" , 
+          "CGU":"Arg" , "CGC":"Arg" , "CGA":"Arg" , "CGG":"Arg" , "AGA":"Arg" , "AGG":"Arg" , 
+          "GGU":"Gly" , "GGC":"Gly" , "GGA":"Gly" , "GGG":"Gly"}
         
         amino = [self.rna[i:i+3] for i in range(0, len(self.rna),3)]
         print(amino)
