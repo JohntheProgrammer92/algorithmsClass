@@ -2,6 +2,8 @@ class DNA():
     def __init__(self, dna):
         self.dna = dna
         self.rna = ""
+        self.amino = []
+        self.chunks = ""
 
     def GetRNA(self):
         tScribe ={"A":"U","T":"A","G":"C","C":"G"}
@@ -21,26 +23,23 @@ class DNA():
           "GCU":"Ala" , "GCA":"Ala" , "GCC":"Ala" , "GCG" : "Ala",
           "UAU":"Tyr" , "UAC":"Tyr" ,
           "UAA":"STOP" , "UAG":"STOP" , "UGA":"STOP",
-          "CAU":"His" , "CAC":"His" , 
+          "CAU":"His" , "CAC":"His" ,
           "CAA":"Gln" , "CAG":"Gln" ,
           "AAU":"Asn" , "AAC":"Asn" ,
           "AAA":"Lys" , "AAG":"Lys" ,
           "GAU":"Asp" , "GAC":"Asp" ,
-          "GAA":"Glu" , "GAU":"Glu" ,
+          "GAA":"Glu" , "GAG":"Glu" ,
           "UGU":"Cys" , "UGC":"Cys" ,
-          "UGG":"Trp" , 
+          "UGG":"Trp" ,
           "CGU":"Arg" , "CGC":"Arg" , "CGA":"Arg" , "CGG":"Arg" , "AGA":"Arg" , "AGG":"Arg" , 
           "GGU":"Gly" , "GGC":"Gly" , "GGA":"Gly" , "GGG":"Gly"}
         
-        amino = [self.rna[i:i+3] for i in range(0, len(self.rna),3)]
-        print(amino)
+        self.amino = [self.rna[i:i+3] for i in range(0, len(self.rna),3)]
 
-        for j in amino:
-            print(j)
-            for key, value in tSlate.items():
-                if j == value:
-                    return key
-                  
+        for i in self.amino:
+            self.chunks += tSlate[i]
+        
+
 
 
 
@@ -48,6 +47,8 @@ class DNA():
 dna = "TACGTACCAGTATAGACCATAGATAGATAGGGATAGTAAATTTACATGCGAGCTAGATATATAGGTAGTGATAGATTAGGGCTAATCTACATATGCGCCGAGCGCTAGCGATAGAGAGTAGTAGCGATGTAGATTTACATAGCGGGCCGTCTCACATACGCATATTACGACGATTGGATTTACCGCGATACGGTCAGAGTAGGCGCAGGAATCTACTTATATTTATAGCGCCACGGATGTGGTAGACAGATAACT"
 
 test = DNA(dna)
-print(test.GetRNA())
+test.GetRNA()
+test.GetAmino()
+print(test.amino)
 print(" ")
-print(test.GetAmino())
+print(test.chunks)
