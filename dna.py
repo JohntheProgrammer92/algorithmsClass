@@ -3,6 +3,7 @@ class Data():
         self.dna = dna
         self.rna = ""
         self.amino = []
+        self.totalproteins = 0
         
 
     def GetRNA(self):
@@ -69,15 +70,14 @@ class Data():
                     perC = 100/total*countDict["C"]
                     perG = 100/total*countDict["G"]
                     perU = 100/total*countDict["U"]
-                    f.write(str("%.2f" % perA) +"%\n")
-                    f.write(str("%.2f" % perC) +"%\n")
-                    f.write(str("%.2f" % perG) +"%\n")
-                    f.write(str("%.2f" % perU) +"%\n\n")
+                    f.write("A: "+str("%.2f" % perA) +"%\n")
+                    f.write("C: "+str("%.2f" % perC) +"%\n")
+                    f.write("G: "+str("%.2f" % perG) +"%\n")
+                    f.write("U: "+str("%.2f" % perU) +"%\n\n")
                     countDict = {}
                     protein = ""
                     total = 0
-
-
+                    self.totalproteins +=1
 
     def GetProteins(self):
         translate = {"UUU":"Phe" , "UUC":"Phe",
@@ -106,7 +106,7 @@ class Data():
             countpro = {}
             total = 0
             f.write("---Protein Frequencies---\n")
-            for i in self.aamino:
+            for i in self.amino:
                 if translate[i] in countpro:
                     countpro[translate[i]] +=1
                     total +=1
@@ -115,7 +115,10 @@ class Data():
                     total+=1
             for j in countpro:
                 per = 100/total*countpro[j]
-                f.write(countpro[j].key()+"%.2f" % per++"%\n")    
+                f.write(j + ": %.2f" % per +"%\n")
+            f.write("\n")
+            f.write("Total number of proteins: "+str(self.totalproteins)+"\n\n")
+            f.write("<RAWDATA>AUGCAUGGUCAUAUCUGGUAUCUAUCUAUCCCUAUCAUUUAAAUGUACGCUCGAUCUAUAUAUCCAUCACUAUCUAAUCCCGAUUAGAUGUAUACGCGGCUCGCGAUCGCUAUCUCUCAUCAUCGCUACAUCUAAAUGUAUCGCCCGGCAGAGUGUAUGCGUAUAAUGCUGCUAACCUAAAUGGCGCUAUGCCAGUCUCAUCCGCGUCCUUAGAUGAAUAUAAAUAUCGCGGUGCCUACACCAUCUGUCUAUUGA</RAWDATA>")
 
 
 
@@ -129,10 +132,10 @@ class Data():
 
 
 
+if __name__ =='__main__':
 
-dna = "TACGTACCAGTATAGACCATAGATAGATAGGGATAGTAAATTTACATGCGAGCTAGATATATAGGTAGTGATAGATTAGGGCTAATCTACATATGCGCCGAGCGCTAGCGATAGAGAGTAGTAGCGATGTAGATTTACATAGCGGGCCGTCTCACATACGCATATTACGACGATTGGATTTACCGCGATACGGTCAGAGTAGGCGCAGGAATCTACTTATATTTATAGCGCCACGGATGTGGTAGACAGATAACT"
-
-test = Data(dna)
-test.GetRNA()
-test.GetNTides()
-test.GetProteins()
+    dna = "TACGTACCAGTATAGACCATAGATAGATAGGGATAGTAAATTTACATGCGAGCTAGATATATAGGTAGTGATAGATTAGGGCTAATCTACATATGCGCCGAGCGCTAGCGATAGAGAGTAGTAGCGATGTAGATTTACATAGCGGGCCGTCTCACATACGCATATTACGACGATTGGATTTACCGCGATACGGTCAGAGTAGGCGCAGGAATCTACTTATATTTATAGCGCCACGGATGTGGTAGACAGATAACT"
+    test = Data(dna)
+    test.GetRNA()
+    test.GetNTides()
+    test.GetProteins()
