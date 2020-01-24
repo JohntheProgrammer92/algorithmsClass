@@ -1,4 +1,4 @@
-class DNA():
+class Data():
     def __init__(self, dna):
         self.dna = dna
         self.rna = ""
@@ -11,8 +11,8 @@ class DNA():
             self.rna += tScribe[i]
         return self.rna
     
-    def GetAmino(self):
-        tSlate = {"UUU":"Phe" , "UUC":"Phe",
+    def GetNTides(self):
+        translate = {"UUU":"Phe" , "UUC":"Phe",
           "UUA":"Leu" , "UUG":"Leu" , "CUU":"Leu" , "CUC":"Leu" , "CUA":"Leu" , "CUG":"Leu",
           "AUU":"Ile" , "AUC":"Ile" , "AUA":"Ile" ,
           "AUG":"Met",
@@ -33,12 +33,58 @@ class DNA():
           "UGG":"Trp" ,
           "CGU":"Arg" , "CGC":"Arg" , "CGA":"Arg" , "CGG":"Arg" , "AGA":"Arg" , "AGG":"Arg" , 
           "GGU":"Gly" , "GGC":"Gly" , "GGA":"Gly" , "GGG":"Gly"}
-        
-        self.amino = [self.rna[i:i+3] for i in range(0, len(self.rna),3)]
 
-        for i in self.amino:
-            self.chunks += tSlate[i]
+        countDict = {}
+        protein = ""
+        total = 0
+        self.amino = [self.rna[i:i+3] for i in range(0, len(self.rna),3)]
         
+        with open("results.txt", 'a') as f:
+            total = 0
+            for j in self.amino:
+               
+                if translate[j] != "STOP":
+                    for k in j:
+                        if k in countDict:
+                            countDict[k] += 1
+                            total += 1
+                        else:
+                            countDict[k] = 1
+                            total += 1
+
+                    protein += translate[j]
+                    protein +="-"
+                else:
+                    for k in j:
+                        if k in countDict:
+                            countDict[k] += 1
+                            total += 1
+                        else:
+                            countDict[k] = 1
+                            total += 1
+                    protein += translate[j]
+                    f.write(protein +"\n")
+                    
+                    perA = 100/total*countDict["A"]
+                    perC = 100/total*countDict["C"]
+                    perG = 100/total*countDict["G"]
+                    perU = 100/total*countDict["U"]
+                    f.write(str("%.2f" % perA) +"%\n")
+                    f.write(str("%.2f" % perC) +"%\n")
+                    f.write(str("%.2f" % perG) +"%\n")
+                    f.write(str("%.2f" % perU) +"%\n\n")
+                    countDict = {}
+                    protein = ""
+                    total = 0
+                    f.write("---Protein Frequencies---\n")
+
+
+
+
+
+
+
+                
 
 
 
@@ -46,9 +92,7 @@ class DNA():
 
 dna = "TACGTACCAGTATAGACCATAGATAGATAGGGATAGTAAATTTACATGCGAGCTAGATATATAGGTAGTGATAGATTAGGGCTAATCTACATATGCGCCGAGCGCTAGCGATAGAGAGTAGTAGCGATGTAGATTTACATAGCGGGCCGTCTCACATACGCATATTACGACGATTGGATTTACCGCGATACGGTCAGAGTAGGCGCAGGAATCTACTTATATTTATAGCGCCACGGATGTGGTAGACAGATAACT"
 
-test = DNA(dna)
+test = Data(dna)
 test.GetRNA()
-test.GetAmino()
-print(test.amino)
-print(" ")
-print(test.chunks)
+test.GetNTides()
+test.GetFreq()

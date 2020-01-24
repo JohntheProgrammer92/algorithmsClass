@@ -1,0 +1,121 @@
+Met-His-Gly-His-Ile-Trp-Tyr-Leu-Ser-Ile-Pro-Ile-Ile-STOP
+26.19%
+21.43%
+11.90%
+40.48%
+
+Met-Tyr-Ala-Arg-Ser-Ile-Tyr-Pro-Ser-Leu-Ser-Asn-Pro-Asp-STOP
+28.89%
+26.67%
+11.11%
+33.33%
+
+Met-Tyr-Thr-Arg-Leu-Ala-Ile-Ala-Ile-Ser-His-His-Arg-Tyr-Ile-STOP
+22.92%
+31.25%
+16.67%
+29.17%
+
+Met-Tyr-Arg-Pro-Ala-Glu-Cys-Met-Arg-Ile-Met-Leu-Leu-Thr-STOP
+26.67%
+22.22%
+24.44%
+26.67%
+
+Met-Ala-Leu-Cys-Gln-Ser-His-Pro-Arg-Pro-STOP
+15.15%
+33.33%
+24.24%
+27.27%
+
+Met-Asn-Ile-Asn-Ile-Ala-Val-Pro-Thr-Pro-Ser-Val-Tyr-STOP
+30.95%
+21.43%
+16.67%
+30.95%
+
+AUG: 9.41%
+CAU: 5.88%
+GGU: 1.18%
+CAU: 5.88%
+AUC: 8.24%
+UGG: 1.18%
+UAU: 5.88%
+CUA: 4.71%
+UCU: 7.06%
+AUC: 8.24%
+CCU: 3.53%
+AUC: 8.24%
+AUU: 1.18%
+UAA: 3.53%
+AUG: 9.41%
+UAC: 2.35%
+GCU: 2.35%
+CGA: 1.18%
+UCU: 7.06%
+AUA: 3.53%
+UAU: 5.88%
+CCA: 2.35%
+UCA: 1.18%
+CUA: 4.71%
+UCU: 7.06%
+AAU: 3.53%
+CCC: 1.18%
+GAU: 1.18%
+UAG: 2.35%
+AUG: 9.41%
+UAU: 5.88%
+ACG: 1.18%
+CGG: 1.18%
+CUC: 1.18%
+GCG: 3.53%
+AUC: 8.24%
+GCU: 2.35%
+AUC: 8.24%
+UCU: 7.06%
+CAU: 5.88%
+CAU: 5.88%
+CGC: 2.35%
+UAC: 2.35%
+AUC: 8.24%
+UAA: 3.53%
+AUG: 9.41%
+UAU: 5.88%
+CGC: 2.35%
+CCG: 2.35%
+GCA: 1.18%
+GAG: 1.18%
+UGU: 1.18%
+AUG: 9.41%
+CGU: 2.35%
+AUA: 3.53%
+AUG: 9.41%
+CUG: 1.18%
+CUA: 4.71%
+ACC: 1.18%
+UAA: 3.53%
+AUG: 9.41%
+GCG: 3.53%
+CUA: 4.71%
+UGC: 1.18%
+CAG: 1.18%
+UCU: 7.06%
+CAU: 5.88%
+CCG: 2.35%
+CGU: 2.35%
+CCU: 3.53%
+UAG: 2.35%
+AUG: 9.41%
+AAU: 3.53%
+AUA: 3.53%
+AAU: 3.53%
+AUC: 8.24%
+GCG: 3.53%
+GUG: 1.18%
+CCU: 3.53%
+ACA: 1.18%
+CCA: 2.35%
+UCU: 7.06%
+GUC: 1.18%
+UAU: 5.88%
+UGA: 1.18%
