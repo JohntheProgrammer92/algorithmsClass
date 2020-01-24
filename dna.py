@@ -3,7 +3,7 @@ class Data():
         self.dna = dna
         self.rna = ""
         self.amino = []
-        self.chunks = ""
+        
 
     def GetRNA(self):
         tScribe ={"A":"U","T":"A","G":"C","C":"G"}
@@ -76,7 +76,47 @@ class Data():
                     countDict = {}
                     protein = ""
                     total = 0
-                    f.write("---Protein Frequencies---\n")
+
+
+
+    def GetProteins(self):
+        translate = {"UUU":"Phe" , "UUC":"Phe",
+          "UUA":"Leu" , "UUG":"Leu" , "CUU":"Leu" , "CUC":"Leu" , "CUA":"Leu" , "CUG":"Leu",
+          "AUU":"Ile" , "AUC":"Ile" , "AUA":"Ile" ,
+          "AUG":"Met",
+          "GUU":"Val" , "GUC":"Val" , "GUA":"Val" , "GUG":"Val" ,
+          "UCU":"Ser" , "UCC":"Ser" , "UCA":"Ser" , "UCG":"Ser" , "AGU":"Ser" , "AGC":"Ser" ,
+          "CCU":"Pro" , "CCC":"Pro" , "CCA":"Pro" , "CCG":"Pro" , 
+          "ACU":"Thr" , "ACC":"Thr" , "ACA":"Thr" , "ACG":"Thr" ,
+          "GCU":"Ala" , "GCA":"Ala" , "GCC":"Ala" , "GCG" : "Ala",
+          "UAU":"Tyr" , "UAC":"Tyr" ,
+          "UAA":"STOP" , "UAG":"STOP" , "UGA":"STOP",
+          "CAU":"His" , "CAC":"His" ,
+          "CAA":"Gln" , "CAG":"Gln" ,
+          "AAU":"Asn" , "AAC":"Asn" ,
+          "AAA":"Lys" , "AAG":"Lys" ,
+          "GAU":"Asp" , "GAC":"Asp" ,
+          "GAA":"Glu" , "GAG":"Glu" ,
+          "UGU":"Cys" , "UGC":"Cys" ,
+          "UGG":"Trp" ,
+          "CGU":"Arg" , "CGC":"Arg" , "CGA":"Arg" , "CGG":"Arg" , "AGA":"Arg" , "AGG":"Arg" , 
+          "GGU":"Gly" , "GGC":"Gly" , "GGA":"Gly" , "GGG":"Gly"}
+        
+        with open("results.txt", 'a') as f:
+            countpro = {}
+            total = 0
+            f.write("---Protein Frequencies---\n")
+            for i in self.aamino:
+                if translate[i] in countpro:
+                    countpro[translate[i]] +=1
+                    total +=1
+                else:
+                    countpro[translate[i]] = 1
+                    total+=1
+            for j in countpro:
+                per = 100/total*countpro[j]
+                f.write(countpro[j].key()+"%.2f" % per++"%\n")    
+
 
 
 
@@ -95,4 +135,4 @@ dna = "TACGTACCAGTATAGACCATAGATAGATAGGGATAGTAAATTTACATGCGAGCTAGATATATAGGTAGTGATA
 test = Data(dna)
 test.GetRNA()
 test.GetNTides()
-test.GetFreq()
+test.GetProteins()
