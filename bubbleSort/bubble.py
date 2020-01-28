@@ -8,10 +8,12 @@ def bubbleSort(x):
           x[j], x[j+1] = x[j+1], x[j]
  
 
-x = [64, 34, 25, 12, 22, 11, 90]
- 
-bubbleSort(x)
- 
-print ("Sorted xay is:")
-for i in range(len(x)):
-    print ("%d" %x[i]),
+
+if __name__ == "__main__":
+  x = [64, 34, 25, 12, 22, 11, 90]
+  
+  bubbleSort(x)
+  
+  print ("Sorted xay is:")
+  for i in range(len(x)):
+      print ("%d" %x[i]),
