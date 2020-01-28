@@ -70,10 +70,10 @@ class Data():
                     perC = 100/total*countDict["C"]
                     perG = 100/total*countDict["G"]
                     perU = 100/total*countDict["U"]
-                    f.write("A: "+str("%.2f" % perA) +"%\n")
-                    f.write("C: "+str("%.2f" % perC) +"%\n")
-                    f.write("G: "+str("%.2f" % perG) +"%\n")
-                    f.write("U: "+str("%.2f" % perU) +"%\n\n")
+                    f.write("A: {0:.2f}".format(perA) +"%\n")
+                    f.write("C: {0:.2f}".format(perC) +"%\n")
+                    f.write("G: {0:.2f}".format(perG) +"%\n")
+                    f.write("U: {0:.2f}".format(perU) +"%\n\n")
                     countDict = {}
                     protein = ""
                     total = 0
@@ -115,7 +115,7 @@ class Data():
                     total+=1
             for j in countpro:
                 per = 100/total*countpro[j]
-                f.write(j + ": %.2f" % per +"%\n")
+                f.write(j + ": {0:.2f}".format(per) +"%\n")
             f.write("\n")
             f.write("Total number of proteins: "+str(self.totalproteins)+"\n\n")
             f.write("<RAWDATA>AUGCAUGGUCAUAUCUGGUAUCUAUCUAUCCCUAUCAUUUAAAUGUACGCUCGAUCUAUAUAUCCAUCACUAUCUAAUCCCGAUUAGAUGUAUACGCGGCUCGCGAUCGCUAUCUCUCAUCAUCGCUACAUCUAAAUGUAUCGCCCGGCAGAGUGUAUGCGUAUAAUGCUGCUAACCUAAAUGGCGCUAUGCCAGUCUCAUCCGCGUCCUUAGAUGAAUAUAAAUAUCGCGGUGCCUACACCAUCUGUCUAUUGA</RAWDATA>")
