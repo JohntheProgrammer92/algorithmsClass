@@ -14,6 +14,6 @@ if __name__ == "__main__":
   
   bubbleSort(x)
   
-  print ("Sorted xay is:")
+  print ("Sorted array is:")
   for i in range(len(x)):
       print (x[i])
