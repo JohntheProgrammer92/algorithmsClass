@@ -16,4 +16,4 @@ if __name__ == "__main__":
   
   print ("Sorted xay is:")
   for i in range(len(x)):
-      print ("%d" %x[i]),
+      print (x[i])
