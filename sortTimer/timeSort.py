@@ -59,17 +59,25 @@ if __name__ == "__main__":
         if numLists.isdigit():
             numNumbers = input("Enter the number of random numbers per array to sort: ")
             if numNumbers.isdigit():
+                print("\n\nBegin sorting...")
                 arr = mkList(int(numLists),int(numNumbers))
                 bubArr = deepcopy(arr)
                 with Timer(True):
                     for i in (bubArr := deepcopy(arr)):
                         bubbleSort(i)
+                print("Bubble sort complete!\n")
                 with Timer(True):
                     for j in (selectArr := deepcopy(arr)):
                         bubbleSort(selectArr)
+                print("Selection sort complete!\n")
                 with Timer(True):
                     for k in (insertArr := deepcopy(arr)):
                         bubbleSort(insertArr)
+                print("insertion sort complete!\n")
+                sentinel = input("Enter 'Q' to quit or any other key to continue: ").upper()
+                if sentinel =="Q":
+                    break
+                print("")
             else:
                 print("Incorrect data type please start over.")
         else:
