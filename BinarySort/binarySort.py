@@ -11,21 +11,33 @@ class DataSet():
 		self.errs = []
 		if csv.split('.')[-1] == "csv":
 			with open(csv) as data:#sorts data at init using a selection sort
-				data.read()
 				if self.testData(data):
-					array = data
+					array = [num for num in data]
 					for i in range(len(array)):
 						min_idx = i 
 						for j in range(i+1, len(array)):
 							if array[min_idx] > array[j]: 
 								min_idx = j 
 						array[i], array[min_idx] = array[min_idx], array[i]
-					
-					self.phoneSSNFix(array)
-					self.averageSalaryPerRank(array)
-					newFile = "Sorted.csv"
-					with open("sorted.csv","a")as sorted:
+				
+					with open("sorted.csv","w")as sorted:
+						numRanks = {}
+						totalRankPay = {}
 						for i in array:
+							i=i.split(',')
+							if i[6] in numRanks:
+								numRanks[i[6]] += 1
+							else: 
+								numRanks[i[6]] = 1
+							if i[6] in totalRankPay:
+								totalRankPay[i[6]] += int(i[7])
+							else:
+								totalRankPay[i[6]] = int(i[7])
+						for j in array:
+							j =j.split(',')
+							print(j)	
+						for i in array:
+							i + (str(totalRankPay[j[6]] / numRanks[j[6]]))
 							sorted.write(str(i))
 				else:
 					self.errs.append("Invalid data set")
@@ -41,33 +53,29 @@ class DataSet():
 				return False
 		
 
-	def averageSalaryPerRank(self, sorted):
+	def averageSalaryPerRank(self, array):
 		#finds the average salary per rank
-		ranks = {}
-		count = {}
-		file = [record for record in sorted]
-		for i in file:
-			i=i.split(",")
-			if i[6] in ranks:
-				ranks[i[6]] += int(i[7])
+		numRanks = {}
+		totalRankPay = {}
+		for i in array:
+			i=i.split(',')
+			if i[6] in numRanks:
+				numRanks[i[6]] += 1
+			else: 
+				numRanks[i[6]] = 1
+			if i[6] in totalRankPay:
+				totalRankPay[i[6]] += int(i[7])
 			else:
-				ranks[i[6]] = int(i[7])
-		for j in file:
-			j=j.split(",")
-			if j[6] not in count:
-				count[j[6]] = 1
-			else:
-				count[j[6]] += 1
+				totalRankPay[i[6]] = int(i[7])
+		for j in array:
+			j =j.split(',')
+			j.append(str(totalRankPay[j[6]] / numRanks[j[6]]))
+			print(j)	
+
+		return array
 		
-		for k in file:
-			k = k.split(",")
-			rank = k[6]
-			totalsalary = int(ranks[rank])
-			numranks = int(count[rank])
-			k.append(totalsalary / numranks)
-			
-			
-		return sorted	
+
+
 			
 		
 

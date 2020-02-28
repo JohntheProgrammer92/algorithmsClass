@@ -1,27 +1,17 @@
-def sort(csv):
-    if csv.split('.')[-1] == "csv":
-        data = open(csv)
-        # sorts data at init using a selection sort
-        data.read()
-        for line in data:
-            array = line
-            for i in range(len(array)):
-                min_idx = i
-                for j in range(i+1, len(array)):
-                    if array[min_idx] > array[j]:
-                        min_idx = j
-                array[i], array[min_idx] = array[min_idx], array[i]
-        newCSV = open("Sort.csv", "a")
-    
+import  csv
 
-        
-        for i in newCSV:
-            for j in i[6]:
-                print(j)
-
-    else:
-        print("Invalid file type")
+def sort(x):
+  
+  for i in range(x):
+    min_idx = i
+    for j in range(i+1, len(x)):
+      if x[min_idx][0] > x[j][0]:
+        min_idx = j
+    x[i], x[min_idx] = x[min_idx], x[i]
+    print(i)
 
 
-x = "employeelist.csv"
-sort(x)
+
+with open("employeelist.csv", "a") as file:
+  for row in file:
+    print(row)
